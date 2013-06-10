@@ -25,12 +25,6 @@ import re
 patron = "^2[0-9]{3}$"
 cadano = ["1999","2000","2999","2500","250","120","1900","2222","25000","2","1"]
 
-#patron2 = "([2-9]{1}[0-9]{3}) [0-1]{0,1}[0-9]|2[0-4]?:([0-5]{1}[0-9]{1}) [AM|PM]{1}"
-
-#cadhoracomp = ["20120 00:00 AM","3333 0:00 PM","1999 01:59 PM","2222 13:00 AM","2345 24:00 PM","9999 12:00 AM",
-#               "3221 4:45 AM","1 3:23 AM","2 2:22 PM","3 6:10 AM","4 1:00 PM","2333 00:60 AM",
-#               "2898 5:55AM","3421 7:11 AM","2221 8:03 AM","2345 9:7 AM","3333 10:00 PM","3331 11:00PM"]
-
 for cad2 in cadano:
 	if re.search(patron,cad2):
 		print "El patrón incluye la hora: " + cad2
@@ -56,6 +50,7 @@ cadhora2 = ["00","01","02","03","04","05","06","07","08","09",
            "80","81","82","83","84","85","86","87","88","89",
            "90","91","92","93","94","95","96","97","98","99",
            "100","200"]
+
 cadhorac = ["00:00","0:00","01:59","13:00","24:00","12:00",
                "6:10","1:00","00:60",
                "5:55","7:11","8:03","9:7","10:00","11:00"]
@@ -135,11 +130,39 @@ patron7= "^([0]?[1-9]|[1-2][0-9]|[3][0-1])/(Ene|Feb|Mar|Abr|May|Jun|Jul|Ago|Sep|
 #	else:
 #		print "NO csearch: " + cad2
 
-nomciudad ="^[A-Z]([a-z])*$" 
-ciudad = ["Barcelona","Madrid","San Sebastian","Granada"]
+nomciudad ="^(([A-Z]([a-z])* )?([D|d]e )?[A-Z]([a-z])*)$" 
+ciudad = ["Barcelona","Madrid","San Sebastian","Granada","Santiago de Compostela"]
 
 for cad2 in ciudad:
 	if re.search(nomciudad,cad2):
+		print "csearch: " + cad2
+	else:
+		print "NO csearch: " + cad2
+
+patron8= "^(([A-ZÑ]([a-zñ])* )?([D|d]e )?[A-ZÑ]([a-zñ])*) ([0]?[1-9]|[1-2][0-9]|[3][0-1])/(Ene|Feb|Mar|Abr|May|Jun|Jul|Ago|Sep|Oct|Nov|Dec)/([2-9][0-9]{3}) ([0]?[0-9]|[1]?[0-2]):([0-5][0-9]) (AM|PM)$"
+
+cadfecha3 = ["Barcelona 31/Ene/2004 00:00 AM",
+             "San Sebastian 31/Ene/2004 00:00 AM",
+             "Granada 32/Ene/2999 0:00 PM",
+             "Cordoba 12/Feb/2009 01:59 PM",
+             "Madrid 1/Dec/9999 13:00 AM",
+             "Gijon 01/Dec/2999 24:00 PM",
+             "Salamanca 09/Feb/1 12:00 AM",
+             "La Coruña 21/Dec/3000 04:45 AM",
+             "Ciudad Real 07/Nov/9999 03:23 AM",
+             "Barcelona 66/Jun/2525 2:22 PM",
+             "Alava 22/Ago/6578 6:10 AM",
+             "Santiago de Compostela 31/Ene/2004 00:00 AM",
+             "Barcelona 11/Fev/2222 00:50 AM",
+             "Guadalajara 23/Oct/2000 05:55 AM",
+             "Castellon 21/Sep/8976 7:11 AM",
+             "Murcia 31/2000 12:59 AM",
+             "Oviedo 12/Maj/2002 9:7 AM",
+             "Girona 12/Agg/1223 10:00 PM",
+             "Tarragona 04/Mar/5643 11:00 AM"]
+
+for cad2 in cadfecha3:
+	if re.search(patron8,cad2):
 		print "csearch: " + cad2
 	else:
 		print "NO csearch: " + cad2

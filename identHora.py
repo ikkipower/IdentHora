@@ -123,7 +123,6 @@ cadfecha2 = ["31/Ene/2004 00:00 AM","32/Ene/2999 0:00 PM","12/Feb/2009 01:59 PM"
 
 patron7= "^([0]?[1-9]|[1-2][0-9]|[3][0-1])/(Ene|Feb|Mar|Abr|May|Jun|Jul|Ago|Sep|Oct|Nov|Dec)/([2-9][0-9]{3}) ([0]?[0-9]|[1]?[0-2]):([0-5][0-9]) (AM|PM)$"
 
-
 #for cad2 in cadfecha2:
 #	if re.search(patron7,cad2):
 #		print "csearch: " + cad2
